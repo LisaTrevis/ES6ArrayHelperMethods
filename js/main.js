@@ -428,20 +428,92 @@
 
 // Given a string of parens, return a boolean if the parens are balanced or not
 
-function balancedParens(string) {
-	// First return string as an array
-	return !string.split("").reduce(function(previous, char) {
-		if (char === "(") { return ++previous; }
-		if (char === ")") { return --previous; }
-		return previous
-	// Everytime we see an open parens, we'll increase the counter by one. Everytime we see a closed paren, we'll decrease the counter by one. If the result is NOT zero, return a false.
-	}, 0);
-}
+// function balancedParens(string) {
+// 	// First return string as an array, then apply reduce to that array which will take each character in the array and run it through the function, starting with a counter of 0.
+// 	// The "!" in front of string will take any number other than 0 and flip it to false, where as a 0 will render as true. This gives us a boolean result rather than a number.
+// 	return !string.split("").reduce(function(counter, char) {
+// 		// To catch end cases where a pair of parens are switched, i.e. ")(", kick back the counter as is if the counter goes negative.
+// 		if (counter < 0) { return counter; }
+// 		if (char === "(") { return ++counter; }
+// 		if (char === ")") { return --counter; }
+// 		return counter
+// 	// Everytime we see an open parens, we'll increase the counter by one. Everytime we see a closed paren, we'll decrease the counter by one. If the result is NOT zero, return a false.
+// 	}, 0);
+// }
 
-var test1 = balancedParens("((()))");
+// Same as this broken out into two functions:
+// function getSum(counter, char) {
+// 		if (char === "(") { return ++counter; }
+// 		if (char === ")") { return --counter; }
+// 		return counter
+// }
 
-var test2 = balancedParens("(()))");
+// function balancedParens(string) {
+// 	return !string.split("").reduce(getSum, 0);
+// }
 
-var test3 = balancedParens("(((ksdlkjlsfd)))");
+// var test1 = balancedParens("((()))");
 
-console.log(test1, test2, test3);
+// var test2 = balancedParens(")()(");
+
+// var test3 = balancedParens("(((ksdlkjlsfd)))");
+
+// console.log(test1, test2, test3);
+
+
+// Use the reduce helper to find the sum of all the distances traveled. Assign the result to a variable.
+
+// var trips = [{ distance: 34 }, { distance: 12 } , { distance: 1 }];
+
+// var totalDistance = trips.reduce(function(previous, trip) {
+// 	return previous + trip.distance;
+// }, 0);
+
+// console.log(totalDistance);
+
+
+// Use the reduce helper to create an object that tallies the number of sitting and standing desks. The object returned should have the form '{ sitting: 3, standing: 2 }'. The intial value has been provided to you.
+
+// var desks = [
+//   { type: 'sitting' },
+//   { type: 'standing' },
+//   { type: 'sitting' },
+//   { type: 'sitting' },
+//   { type: 'standing' }
+// ];
+
+// var deskTypes = desks.reduce(function(counter, desk) {
+//     if(desk.type === 'sitting') { ++counter.sitting; }
+//     if(desk.type === 'standing') { ++counter.standing; }
+//     return counter;
+// }, { sitting: 0, standing: 0 });
+
+// console.log(deskTypes);
+
+
+// Write a function called 'unique' that will remove all the duplicate values from an array. For example, given the array var nums = [1, 1, 2, 3, 4, 4], the function should return [1, 2, 3, 4].
+
+// function unique(array) {
+    
+//     var numbers = [1, 1, 2, 3, 4, 4];
+//     var newArray = [];
+    
+//     array.reduce(function(newArray,number){
+        
+//         if (!newArray.find(function(num){ return num === number }))
+//         { newArray.push(number)}
+        
+//         return newArray;
+//     },newArray);
+  
+//   return newArray;
+
+// }
+
+
+
+
+
+
+
+
